@@ -4,7 +4,7 @@ class multimetro
 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        final int tam = 5;
+        final int tam = 10;
         float[] medicoes = new float[tam];
         float media=0;
         float desvio=0;
@@ -14,8 +14,7 @@ class multimetro
             medicoes[i] = sc.nextFloat();
             media+= medicoes[i];
         }
-        sc.close();
-        media/=tam;
+        media /= tam;
         for(i=0;i<tam;i++)
         {
             desvio+= (Math.pow(medicoes[i]-media,2));
@@ -23,8 +22,8 @@ class multimetro
         desvio/=tam;
         desvio=(float)Math.sqrt(desvio);
         if(desvio>0.1*media)
-        System.out.printf("media:%.2f \ndesvio:%.2f\n o multimetro nao esta regular",media,desvio);
+        System.out.println("media:" + media + "\ndesvio:" + desvio + "\n o multimetro nao esta regular");
         else
-        System.out.printf("media:%.2f\ndesvio:%.2f\no multimetro esta regular");
+        System.out.println("media:" + media + "\ndesvio:" + desvio + "\no multimetro esta regular");
     }
 }
