@@ -1,0 +1,17 @@
+2.Os operadores possuem regras que são aplicadas nas expressões aritméticas do Java, que são as mesmas seguidas em álgebra. Quando dizemos que os operadores são aplicados da esquerda para a direita, estamos nos referindo à sua associatividade.
+
+Operadores de multiplicação, divisão e módulo são aplicadas primeiro. Por exemplo, quando aparecer uma expressão com várias dessas operações, elas serão aplicadas da esquerda para a direita.
+
+As operações de adição e subtração são aplicadas em seguida.
+
+A utilização do parenteses serve para priorizar as operações entre elas, por exemplo:
+
+3*4+(10/5)
+sera realizado primeiro a divisão entre o parenteses, para logo depois realizar por ordem de prioridade, ou seja,
+multiplicação e logo após a adição.
+
+________________________________________________________________________________________________________________________
+3.O operador ternário é um recurso para tomada de decisões com objetivo similar ao do if/else, mas que é codificado em apenas uma linha.
+Sua sintaxe é assim:
+(expressão booleana) ? código 1 : código 2;
+Ao avaliar a expressão booleana, caso ela seja verdadeira, o código 1, declarado após o ponto de interrogação (?) será executado; do contrário, o programa irá executar o código 2, declarado após os dois pontos (:).
