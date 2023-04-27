@@ -19,3 +19,5 @@ class Horaexata:
 
     def mostrahora(self):
         print(f"agora sao aproximadamente {self.hora}:{self.min}:{self.seg}:{self:cent}")
+
+#pode-se usar todos os dados e operações do hora aproximada

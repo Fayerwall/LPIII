@@ -9,12 +9,8 @@ class Lampada:
         self.lamp = 0
 
     def ajustebrilho(self):
-        self.lamp = input("qual a nova porcentagem da lampada: ")
+        self.lamp = input("qual a nova porcentagem de brilho da lampada: ")
 
     def porcentagembrilho(self):
         print(f"a porcentagem de brilho da lampada é de:{self.lamp}%")
-
-a = Lampada(52)
-a.ajustebrilho()
-a.porcentagembrilho()
 
