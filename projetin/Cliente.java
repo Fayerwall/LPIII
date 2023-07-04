@@ -1,24 +1,25 @@
-public class Cliente{
+public class Cliente implements Comparable<Cliente>{
     private String Nome;
     private String numero;
-    private String insta;
     private String horario;
+    private int total;
 
 
-    public Cliente(String nome,String horario,String numero,String insta){
+    public Cliente(String nome,String horario,String numero,int total){
         this.Nome = nome;
         this.horario = horario;
         this.numero = numero;
-        this.insta = insta;
+        this.total = total;
       
     }
 
-    public Cliente(String nome,String horario,String numero){
-        this(nome,numero,horario,"nao informado");
+    public Cliente(String nome,String horario, String numero){
+        this(nome,numero,horario,opcoes.calculartotal());
     }
 
-    public Cliente(String nome,String horario){
-        this(nome,horario,"nao informado","nao informado");
+    @Override
+    public int compareTo(Cliente outroCliente) {
+        return this.horario.compareTo(outroCliente.horario);
     }
 
     public String getHorario() {
@@ -41,10 +42,13 @@ public class Cliente{
     public void setNumero(String numero) {
         this.numero = numero;
     }
-    public String getInsta() {
-        return insta;
+
+    public int getTotal() {
+        return total;
     }
-    public void setInsta(String insta) {
-        this.insta = insta;
-    }  
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+    
 }
