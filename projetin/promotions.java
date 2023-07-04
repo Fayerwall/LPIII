@@ -1,7 +1,7 @@
 public interface promotions{
 
 
-    public void promocao(int x);
+    public void promocao();
 
     public boolean verificapromo();
 

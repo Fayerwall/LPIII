@@ -25,9 +25,9 @@ public class Agenda{
        
         for(Cliente c: clientes){       
             if(c.getHorario().equals(horario))
-                return false;
+                return true;
         }
-        return true;
+        return false;
     }
     
     public void trocarHorario(String nome, String novoHorario)
@@ -41,7 +41,7 @@ public class Agenda{
 
     public void adicionarCliente(Cliente cliente)
     {     
-        if(verificaChoqueHorario(cliente.getHorario()))
+        if(!verificaChoqueHorario(cliente.getHorario()))
             clientes.add(cliente);
         else
             System.out.println("Não é possivel marcar nesse horario!");

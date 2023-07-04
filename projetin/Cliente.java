@@ -14,7 +14,7 @@ public class Cliente implements Comparable<Cliente>{
     }
 
     public Cliente(String nome,String horario, String numero){
-        this(nome,numero,horario,opcoes.calculartotal());
+        this(nome,horario,numero,opcoes.calculartotal());
     }
 
     @Override

@@ -60,69 +60,81 @@ public void alterarPrecos() {
         return x;
     }
 
-    public void promocao(int x){
-        float y;int opcao;
-        y = x/100;
+    public void promocao(){
+        int opcao;
+        int x;
         Scanner sc1 = new Scanner(System.in);
         do{
-                System.out.print("qual opcao deseja aplicar a promocao:\n\n1 - corte\n2 - barba\n3 - navalhado\n4 - nevado\n5 - lavar\n6 - hidratar\n7 - sobrancelha\n0 - voltar\n" +
-                        "\"");
+                System.out.print("qual opcao deseja aplicar a promocao:\n\n1 - corte\n2 - barba\n3 - navalhado\n4 - nevado\n5 - lavar\n6 - hidratar\n7 - sobrancelha\n0 - voltar\n\n");
                 opcao = Integer.parseInt(sc1.nextLine());
                 if(opcao == 1){
+                    System.out.println("Digite o desconto que voce deseja aplicar em um de seus itens do catálogo: ");
+                    x = sc1.nextInt();
                     ant = corte;
-                    corte =(int)(corte - corte*y);
+                    corte =(int)(corte - x);
                     promotion = true;
                     oppromo = 1;
                     break;
                 }
-                if(opcao == 2){
+                else if(opcao == 2){
+                    System.out.println("Digite o desconto que voce deseja aplicar em um de seus itens do catálogo: ");
+                    x = sc1.nextInt();
                     ant = barba;
-                    barba =(int)(barba - barba*(y));
+                    barba =(int)(barba - x);
                     promotion = true;
                     oppromo = 2;
                     break;
                 } 
-                if(opcao == 3){
+                else if(opcao == 3){
+                    System.out.println("Digite o desconto que voce deseja aplicar em um de seus itens do catálogo: ");
+                    x = sc1.nextInt();
                     ant = navalhado;
-                    navalhado =(int)(navalhado - navalhado*y);
+                    navalhado =(int)(navalhado - x);
                     promotion = true;
                     oppromo = 3;
                     break;
                 } 
-                if(opcao == 4){
+                else if(opcao == 4){
+                    System.out.println("Digite o desconto que voce deseja aplicar em um de seus itens do catálogo: ");
+                    x = sc1.nextInt();
                     ant = nevado;
-                    nevado = (int)(nevado - nevado*y);
+                    nevado = (int)(nevado - x);
                     promotion = true;
                     oppromo = 4;
                     break;
                 } 
-                if(opcao == 5){
+                else if(opcao == 5){
+                    System.out.println("Digite o desconto que voce deseja aplicar em um de seus itens do catálogo: ");
+                    x = sc1.nextInt();
                     ant = lavar;
-                    lavar= (int)(lavar - lavar*y);
+                    lavar= (int)(lavar - x);
                     promotion = true;
                     oppromo = 5;
                     break;
                 } 
-                if(opcao == 6){
+                else if(opcao == 6){
+                    System.out.println("Digite o desconto que voce deseja aplicar em um de seus itens do catálogo: ");
+                    x = sc1.nextInt();
                     ant = hidratar;
-                    hidratar = (int)(hidratar - hidratar*y);
+                    hidratar = (int)(hidratar - x);
                     promotion = true;
                     oppromo = 6;
                     break;
                 } 
-                if(opcao == 7){
+                else if(opcao == 7){
+                    System.out.println("Digite o desconto que voce deseja aplicar em um de seus itens do catálogo: ");
+                    x = sc1.nextInt();
                     ant = sobrancelha;
-                    sobrancelha = (int)(sobrancelha - sobrancelha*y);
+                    sobrancelha = (int)(sobrancelha - x);
                     promotion = true;
                     oppromo = 7;
                     break;
                 } 
             }while(opcao != 0);
-            sc1.close();
     }
 
     public boolean verificapromo(){
-        if(promotion = true) return true;
+        if(promotion) return true;
         else return false;
     }
 

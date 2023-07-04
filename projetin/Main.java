@@ -17,6 +17,8 @@ public class Main {
             System.out.println("5 - Calcular receita do dia");
             System.out.println("6 - mostrar tabela de preços");
             System.out.println("7 - alterar preços da barbearia");
+            System.out.println("8 - aplicar uma promoção");
+            System.out.println("9 - retirar promoção");
             System.out.println("0 - Sair");
 
             System.out.print("Escolha uma opção: ");
@@ -34,7 +36,6 @@ public class Main {
 
                     Cliente cliente = new Cliente(nome, horario, numero);
                     agenda.adicionarCliente(cliente);
-                    System.out.println("Cliente adicionado com sucesso!");
                     break;
 
                 case 2:
@@ -78,8 +79,22 @@ public class Main {
                    if(op.verificapromo()){
                         System.out.println("ja existe uma promoção em uma opção, retire-a para adicionar uma nova.");
                         break;
-                    }   
-                   //else op.promocao();
+                    }
+                    else{ 
+                        op.promocao();
+                        break;
+                    }
+
+                case 9:
+
+                    if(!op.verificapromo()){
+                        System.out.println("Nao existe uma promoção a ser removida.");
+                        break;
+                    }
+                    else{
+                        op.tirapromo();
+                        break;
+                    }
 
                 case 0:
                     continuarMenu = false;
@@ -92,6 +107,7 @@ public class Main {
             }
 
             System.out.println();
+
         }
 
         scanner.close();
