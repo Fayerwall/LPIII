@@ -71,6 +71,7 @@ public class Main {
                     System.out.print("O cliente irá pagar hoje?: ");
                     fiado = scanner.nextInt() == 0? false:true;
                     agenda.adicionarCliente(new ClienteVIP(nome, horario, numero, fiado));
+                    break;
                 case 4:
                     System.out.println("\n\n\n");
                     System.out.println("Agenda do dia:");
