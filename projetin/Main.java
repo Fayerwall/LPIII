@@ -9,6 +9,7 @@ public class Main {
         boolean continuarMenu = true;
         boolean fiado;
         while (continuarMenu) {
+            System.out.println("\n\n\n");
             System.out.println("==== Menu ====");
             System.out.println("1 - Adicionar cliente");
             System.out.println("2 - Cancelar agendamento");
@@ -20,7 +21,7 @@ public class Main {
             System.out.println("8 - alterar preços da barbearia");
             System.out.println("9 - aplicar uma promoção");
             System.out.println("10 - retirar promoção");
-            
+            System.out.println("11 - resetar agenda"); 
             System.out.println("0 - Sair");
 
             System.out.print("Escolha uma opção: ");
@@ -29,7 +30,7 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    
+                    System.out.println("\n\n\n");
                     System.out.print("Digite o nome do cliente: ");
                     nome = scanner.nextLine();
                     System.out.print("Digite o horário de agendamento: ");
@@ -46,6 +47,7 @@ public class Main {
                     break;
 
                 case 2:
+                    System.out.println("\n\n\n");
                     System.out.print("Digite o nome do cliente a ser cancelado: ");
                     String nomeCancelar = scanner.nextLine();
                     agenda.cancelarAgendamento(nomeCancelar);
@@ -54,50 +56,54 @@ public class Main {
 
                 
                 case 3:
+                    System.out.println("\n\n\n");
+                    
+                    System.out.print("Digite o nome do cliente: ");
+                    nome = scanner.nextLine();
                     System.out.print("Digite o horário de agendamento: ");
                     horario = scanner.nextLine();
                     while(agenda.verificaChoqueHorario(horario)){
                     System.out.println("Esse horário, não esta disponivel! Digite um válido: ");
                     horario = scanner.nextLine();
                     }
-                    System.out.print("Digite o nome do cliente: ");
-                    nome = scanner.nextLine();
                     System.out.print("Digite o número de contato: ");
                     numero = scanner.nextLine();    
                     System.out.print("O cliente irá pagar hoje?: ");
                     fiado = scanner.nextInt() == 0? false:true;
                     agenda.adicionarCliente(new ClienteVIP(nome, horario, numero, fiado));
                 case 4:
+                    System.out.println("\n\n\n");
                     System.out.println("Agenda do dia:");
                     agenda.getAgendaDoDia();
                     break;
                 case 5:
+                    System.out.println("\n\n\n");
                     System.out.print("Digite o nome do cliente: ");
                     String nomeTrocarHorario = scanner.nextLine();
                     System.out.print("Digite o novo horário de agendamento: ");
                     String novoHorario = scanner.nextLine();
                     agenda.trocarHorario(nomeTrocarHorario, novoHorario);
-                    System.out.println("Horário de agendamento trocado com sucesso!");
                     break;
 
                 case 6:
+                    System.out.println("\n\n\n");
                     int receitaDoDia = agenda.calcularReceitaDoDia();
                     System.out.println("Receita do dia: " + receitaDoDia);
                     break;
                 
                 case 7:
-                    
+                    System.out.println("\n\n\n");
                     op.mostrarPrecos();
                     break;
 
                 case 8:
-
+                    System.out.println("\n\n\n");
                     op.alterarPrecos();
                     break;
 
                 case 9:
-
-                   if(op.verificapromo()){
+                    System.out.println("\n\n\n");
+                    if(op.verificapromo()){
                         System.out.println("ja existe uma promoção em uma opção, retire-a para adicionar uma nova.");
                         break;
                     }
@@ -107,7 +113,7 @@ public class Main {
                     }
 
                 case 10:
-
+                    System.out.println("\n\n\n");
                     if(!op.verificapromo()){
                         System.out.println("Nao existe uma promoção a ser removida.");
                         break;
@@ -116,6 +122,11 @@ public class Main {
                         op.tirapromo();
                         break;
                     }
+                
+                case 11:
+
+                    agenda.resetAgenda();
+                    break;
 
                 case 0:
                     continuarMenu = false;

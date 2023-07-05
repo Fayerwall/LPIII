@@ -12,15 +12,15 @@ public class Agenda{
         this.clientes = new LinkedList<>();
     }
 
-    private boolean clienteEstaNaLista(String nome)
-    {   
-        for(Cliente c: clientes)
-        {
-            if(c.getNome().equals(nome))
+    private boolean clienteEstaNaLista(String nome) {
+        posicaoNaLista = 0;
+        for (Cliente c : clientes) {
+            if (c.getNome().equals(nome)) {
                 return true;
-            posicaoNaLista++;        
+            }
+            posicaoNaLista++;
         }
-        return false;        
+        return false;
     }
     
     public boolean verificaChoqueHorario(String horario){
@@ -34,8 +34,10 @@ public class Agenda{
     
     public void trocarHorario(String nome, String novoHorario)
     {
-        if(clienteEstaNaLista(nome) && verificaChoqueHorario(novoHorario))
+        if(clienteEstaNaLista(nome) && !verificaChoqueHorario(novoHorario)){
             clientes.get(posicaoNaLista).setHorario(novoHorario);
+            System.out.println("Horário de agendamento trocado com sucesso!");
+        }
         else
             System.out.println("Não é possivel alterar o horario desse cliente!");
         posicaoNaLista = 0;
@@ -84,9 +86,11 @@ public class Agenda{
         int receitaFiado = 0;
         ClienteVIP v;
         for (Cliente cliente : clientes) {
-            v = (ClienteVIP) cliente;
-            if(cliente instanceof ClienteVIP && v.getvaipagar())
-                receitaFiado += v.getSaldoDevedor();
+            if(clientes instanceof ClienteVIP){
+                v = (ClienteVIP) cliente;
+                if(cliente instanceof ClienteVIP && v.getvaipagar())
+                    receitaFiado += v.getSaldoDevedor();
+            }
             else
                 receitaDoDia += cliente.getTotal();
         }
