@@ -1,7 +1,9 @@
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
 public class Agenda{
+
     private List<Cliente> clientes; 
     private int posicaoNaLista = 0;
 
@@ -21,7 +23,7 @@ public class Agenda{
         return false;        
     }
     
-    private boolean verificaChoqueHorario(String horario){
+    public boolean verificaChoqueHorario(String horario){
        
         for(Cliente c: clientes){       
             if(c.getHorario().equals(horario))
@@ -47,14 +49,6 @@ public class Agenda{
             System.out.println("Não é possivel marcar nesse horario!");
     }
 
-    public void cancelarAgendamento(Cliente cliente) 
-    {
-        /*Entendo a ideia de passar um Clienta como parametro, so fica mais complicado para trabalhar.
-         Fica muito mais facil passando o nome do cliente, verificando se ele ta na lista e depois excluir.
-        */
-         this.clientes.remove(cliente);
-    }
-
     public void cancelarAgendamento(String nome)
     {
         if(clienteEstaNaLista(nome))
@@ -68,18 +62,35 @@ public class Agenda{
 
     public List<Cliente> getAgendaDoDia() {
         Collections.sort(clientes);
-        for (Cliente c : clientes) {
+        ClienteVIP v;
+        
+        for(Cliente c: clientes)
+        {
+            if(c instanceof ClienteVIP){
+                v = (ClienteVIP) c;
+                if(c instanceof ClienteVIP && !v.getvaipagar())
+                    System.out.println(v.getNome() + " " + v.getHorario() + " Saldo devedor: " + v.getSaldoDevedor() + "\nnumero de contato: " + c.getNumero());
+            }    
+            else
             System.out.println(c.getNome() + " " + c.getHorario() + " total a pagar: " + c.getTotal() + "\nnumero de contato: " + c.getNumero());
         }
+        
         return this.clientes;
     }
 
-    public int calcularReceitaDoDia(){
-    int receitaDoDia = 0;
-    for (Cliente cliente : clientes) {
-        receitaDoDia += cliente.getTotal();
-    }
-    return receitaDoDia;
+    public int calcularReceitaDoDia()
+    {
+        int receitaDoDia = 0;
+        int receitaFiado = 0;
+        ClienteVIP v;
+        for (Cliente cliente : clientes) {
+            v = (ClienteVIP) cliente;
+            if(cliente instanceof ClienteVIP && v.getvaipagar())
+                receitaFiado += v.getSaldoDevedor();
+            else
+                receitaDoDia += cliente.getTotal();
+        }
+        return receitaDoDia;
 }
 
 }

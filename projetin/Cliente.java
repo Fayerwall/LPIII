@@ -4,17 +4,23 @@ public class Cliente implements Comparable<Cliente>{
     private String horario;
     private int total;
 
-
+    public Cliente(String nome, String horario, String numero, boolean fiado)
+    {
+        this.Nome = nome;
+        this.horario = horario;
+        this.numero = numero;
+    }
+    
+    
     public Cliente(String nome,String horario,String numero,int total){
         this.Nome = nome;
         this.horario = horario;
         this.numero = numero;
         this.total = total;
-      
     }
 
     public Cliente(String nome,String horario, String numero){
-        this(nome,horario,numero,opcoes.calculartotal());
+        this(nome,horario,numero, opcoes.calculartotal());
     }
 
     @Override
@@ -23,12 +29,12 @@ public class Cliente implements Comparable<Cliente>{
     }
 
     public String getHorario() {
-            return horario;
-        }
+        return horario;
+    }
 
-        public void setHorario(String horario) {
-            this.horario = horario;
-        }
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
 
     public String getNome() {
         return Nome;

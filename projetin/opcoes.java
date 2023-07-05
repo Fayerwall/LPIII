@@ -44,18 +44,47 @@ public void alterarPrecos() {
 
     public static int calculartotal(){
         int x = 0;
+        int []vet = {0,0,0,0,0,0,0};
+        String []ops = {"1 - corte","2 - barba","3 - navalhado","4 - nevado","5 - lavar","6 - hidratar","7 - sobrancelha"};
         Scanner sc1 = new Scanner(System.in);
         int opcao = 0; 
             do{
-                System.out.print("qual opção o cliente deseja:\n\n1 - corte\n2 - barba\n3 - navalhado\n4 - nevado\n5 - lavar\n6 - hidratar\n7 - sobrancelha\n0 - concluido\n");
+                System.out.print("qual opção o cliente deseja:\n\n");
+                for(int i = 0;i<7;i++){
+                    if(vet[i]==0){
+                        System.out.println(ops[i]);
+                    }
+                }
+                System.out.print("0 - concluido\n");
                 opcao = sc1.nextInt();
-                if(opcao == 1) x+=corte;
-                if(opcao == 2) x+=barba;
-                if(opcao == 3) x+=navalhado;
-                if(opcao == 4) x+=nevado;
-                if(opcao == 5) x+=lavar;
-                if(opcao == 6) x+=hidratar;
-                if(opcao == 7) x+=sobrancelha;
+                if(opcao == 1){
+                 x+=corte;
+                 vet[opcao-1]=1;
+                }
+                if(opcao == 2){ 
+                x+=barba;
+                vet[opcao-1]=2;
+            }
+                if(opcao == 3){
+                x+=navalhado;
+                vet[opcao-1]=3;
+            }
+                if(opcao == 4){ 
+                x+=nevado;
+                vet[opcao-1]=4;
+            }
+                if(opcao == 5){
+                x+=lavar;
+                vet[opcao-1]=5;
+            }
+                if(opcao == 6){ 
+                x+=hidratar;
+                vet[opcao-1]=6;
+            }
+                if(opcao == 7){ 
+                x+=sobrancelha;
+                vet[opcao-1]=7;
+            }
             }while(opcao != 0);
         return x;
     }
